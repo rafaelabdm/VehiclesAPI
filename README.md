@@ -21,7 +21,8 @@ Ferramentas: Javascript, em ambiente Node e SQLite.<br>
 
 <p>
 Nesse exercício tínhamos que criar um serviço (API) para cadastrar veículos. O critério dos dados salvos no banco era livre, então escolhi gravar
-os campos: id (sendo único, seria a placa do carro), brand (marca do carro), owner (dono do carro), color (cor) e year (ano de lançamento).<br>
+	os campos: <i><b>id</b></i> (sendo único, seria a placa do carro), <i><b>brand</b></i> (marca do carro), <i><b>owner</b></i> (dono do carro),
+	<i><b>color</b></i> (cor) e <i><b>year</b></i> (ano de lançamento).<br>
 Já as funcionalidades que o projeto deveria cumprir, o professor especificou as seguntes:
 
   * Cadastrar um veículo;
