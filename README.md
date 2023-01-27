@@ -38,10 +38,33 @@ Já as funcionalidades que o projeto deveria cumprir, o professor especificou as
 <p>
 Ao baixar o repositório rode o comando <TT>npm install</TT>, isso instalará os pacotes necessários para rodas a aplicação.
 Terminado esse processo a API já estará pronta para rodar na sua máquina.<br>
-Com o comando <TT>npm start</TT> ou <TT>npm run dev</TT> rode a aplicação, ela fará com que o servidor fique ouvindo na porta padrão 80.<br>
-Depois disso, você pode usar seu navegador para acessar os dados que deseja, escrevendo <TT>localhost/vehicles</TT> na barra de pesquisa. 
-Você terá acesso a lista de carros salva no banco de dados. Ou <TT>localhost/vehicles/<i>marca_do_carro</i></TT> para ver se tem algum carro
-dessa marca no banco. <br>
-Usando uma plataforma de API, como o Postman por exemplo, você pode testar as demais funcionalidades (GET, POST, PATCH, DELETE).
-</p>
+Com o comando <TT>npm start</TT> ou <TT>npm run dev</TT> rode a aplicação, lançará o servidor e fará com que o mesmo fique ouvindo na porta padrão 80.<br>
+Depois disso, você pode usar seu navegador ou uma plataforma de API para acessar os dados que deseja, e fazer requisições.<br><br>
 
+
+COMANDOS DE BUSCA 🔍<br><br>
+GET: <TT>localhost/vehicles</TT> devolve a lista de carros salva no banco de dados.<br>
+GET ONE:<TT>localhost/vehicles/<i>placa_do_carro</i></TT> procura veículo pela placa (id).<br>
+GET ONE:<TT>localhost/vehicles/<i>marca_do_carro</i></TT> procura veículo pela marca.<br><br>
+
+COMANDOS DE CADASTRO 🗒️<br><br>
+POST: cadastrar um vículo. É necessário mandar os seguintes campos na requisição:
+```
+{
+	"id": "FFF5F55",
+	"brand": "ford",
+	"owner": "rafaela",
+	"color": "black",
+	"year": "2022"
+}
+```
+PATCH: atualizar um veículo. É necessário passar o id do veículo na URL e o campo que deseja atualizar no corpo da requisição:<br>
+<TT>localhost/vehicles/FFF5F55</TT>
+```
+{
+	"color": "yellow"
+}
+```
+<br>
+COMANDO DE REMOÇÃO 🗑️<br><br>
+DELETE: apagar veículo. É necessário passar o id do vepiculo na URL <TT>localhost/vehicles/FFF5F55</TT>
