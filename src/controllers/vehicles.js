@@ -24,6 +24,14 @@ exports.getAll = (req, res) => {
 };
 
 // GET ONE
+function is_brand(id) {
+	for(i in id) {
+		if (!isNaN(Number(id[i])))
+			return (false);
+	}
+	return (true)
+}
+
 exports.getOne = (req, res) => {
 	const { id } = req.params;
 
@@ -35,19 +43,10 @@ exports.getOne = (req, res) => {
 		return res.status(404).json({ msg: 'Vehicle not found!'});
 	};
 
-	const brandsList = ['acura', 'audi', 'bmw', 'bentley', 'buick', 'cadillac', 'chevrolet', 'chrysler',
-		'dodge', 'fiat', 'fisker', 'ford', 'gmc', 'genesis', 'honda', 'hyundai', 'infiniti', 'jaguar',
-		'jeep', 'kia', 'land rover', 'lexus', 'lincoln', 'lotus', 'lucid', 'maserati', 'mazda',
-		'mercedes-benz', 'mini', 'mitsubishi', 'nissan', 'polestar', 'porsche', 'ram', 'rivian',
-		'rolls-royce', 'scout', 'smart', 'subaru', 'suzuki', 'tesla', 'toyota', 'volkswagen',
-		'volvo'];
-	for(let i = 0; i < brandsList.length; i++) {
-		if (String(id).toLowerCase() == brandsList[i]) {
-			Vehicles.findByBrand(id, callback);
-			return ;
-		}
-	}
-	Vehicles.findById(id, callback);
+	if (is_brand(id))
+		Vehicles.findByBrand(id, callback);
+	else
+		Vehicles.findById(id, callback);
 };
 
 // PUT

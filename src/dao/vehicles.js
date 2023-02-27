@@ -18,7 +18,6 @@ class Vehicles {
 	// GET ALL
 	findAll(callback) {
 		const sql = `SELECT * FROM vehicles`;
-	
 		this.db.all(sql, callback);
 	}
 
@@ -31,7 +30,7 @@ class Vehicles {
 	// GET BY BRAND
 	findByBrand(brand, callback) {
 		const fixBrand = String(brand).toLowerCase();
-		const sql = `SELECT * FROM vehicles WHERE brand='${fixBrand}';`;
+		const sql = `SELECT * FROM vehicles WHERE brand LIKE '${fixBrand}';`;
 		this.db.all(sql, callback);
 	}
 
