@@ -49,7 +49,7 @@ exports.getOne = (req, res) => {
 		Vehicles.findById(id, callback);
 };
 
-// PUT
+// PATCH
 exports.changeOne = (req, res) => {
 	Vehicles.updatePartial(req.params.id, req.body, (err) => {
 		if (err)
